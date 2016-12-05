@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+<body>
+<style>
+    section {
+        display: grid;
+        grid-columns: 150px 1fr 200px;
+        grid-rows: 50px 1fr 50px;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    section .a {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    section .b {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    i:hover{
+        color: #3cacff;
+    }
+    section .c {
+        grid-column: 3;
+        grid-row: 1;
+
+    }
+    div {
+        font-size: 100px;
+    }
+</style>
+<section>
+    <div class="a"><i class="fa fa-backward" aria-hidden="true" id="back"></i></div>
+    <div class="b"><i class="fa fa-play" aria-hidden="true" id="play"></i></div>
+    <div class="c"><i class="fa fa-forward" aria-hidden="true" id="next"></i></div>
+</section>
+<audio src="Молодые ветра.mp3" style="width: 100px; height: 100px;"></audio>
+</body>
+<script>
+    var isPlay = false;
+    var musics = ['To Build A Home (Rauschfaktor M Edit).mp3', 'Молодые ветра.mp3'];
+    var currentIndex = 0;
+    var audio = new Audio(musics[currentIndex]);
+    document.getElementById('next').onclick = function () {
+        currentIndex++;
+        audio.pause();
+        if(currentIndex > musics.length - 1){
+            currentIndex = 0;
+        }
+        audio = new Audio(musics[currentIndex]);
+        audio.play();
+    };
+    document.getElementById('back').onclick = function () {
+        currentIndex--;
+        audio.pause();
+        if(currentIndex < 0){
+            currentIndex = musics.length -1;
+        }
+        audio = new Audio(musics[currentIndex]);
+        audio.play();
+    };
+    document.getElementById('play').onclick = function () {
+        if(isPlay) {
+            audio.pause();
+            document.getElementById('play').className = "fa fa-play";
+            isPlay = false;
+
+        } else{
+            audio.play();
+            document.getElementById('play').className = "fa fa-pause";
+            isPlay = true;
+        }
+
+    }
+</script>
+</html>

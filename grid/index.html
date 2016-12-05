@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<body>
+<style>
+    section {
+        display: grid;
+        grid-columns: 150px 1fr 200px;
+        grid-rows: 50px 1fr 50px;
+        width: 300px;
+    }
+
+    section .a {
+        grid-column: 3/2;
+        grid-row: 1;
+        background-color: green;
+        margin-left: -20px;
+    }
+
+    section .b {
+        background-color: red;
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    section .c {
+        grid-column: 2;
+        grid-row: 3;
+        background-color: blue;
+
+    }
+</style>
+<section>
+    <div class="a">A</div>
+    <div class="b">B</div>
+    <div class="c">C</div>
+</section>
+</body>
+</html>
